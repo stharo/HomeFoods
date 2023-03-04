@@ -29,8 +29,42 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
+skin: "/assets/css/skins/default.css"
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+
+read_time: true
+words_per_minute: # 200
+paginate: 10  # amount of posts to show per page
+paginate_path: /page:num/
+
+search_full_content: true
+
+# Collections
+collections:
+  recipes:
+    output: true
+    permalink: /:collection/:path/
+
+# Front Matter Defaults
+defaults:
+  # Post defaults
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      comments: true
+      share: true
+  # Recipe defaults
+  - scope:
+      path: "_recipes"
+      type: recipes
+    values:
+      layout: post
+      comments: true
+      share: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
